@@ -2,6 +2,7 @@
 using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
+using System.Threading;
 
 public class TestSuite
 {
@@ -118,5 +119,89 @@ public class TestSuite
         yield return null;
     }
 
+    [UnityTest]
+    public IEnumerator AsteroidOneGameOver()
+    {
+          // Collision
+
+        GameObject gameGameObject =
+           MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Game"));
+        Game game = gameGameObject.GetComponent<Game>();
+    
+        GameObject asteroid =
+         MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Asteroid"));
+      
+        //1
+        asteroid.transform.position = game.GetShip().transform.position;
+        //2
+        yield return new WaitForSeconds(0.1f);
+
+        //3
+        Assert.True(game.isGameOver); 
+    }
+
+
+    [UnityTest]
+    public IEnumerator AsteroidTwoGameOver()
+    {
+        // Collision
+
+        GameObject gameGameObject =
+           MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Game"));
+        Game game = gameGameObject.GetComponent<Game>();
+
+        GameObject asteroid =
+         MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Asteroid2"));
+
+        //1
+        asteroid.transform.position = game.GetShip().transform.position;
+        //2
+        yield return new WaitForSeconds(0.1f);
+
+        //3
+        Assert.True(game.isGameOver);
+    }
+
+    [UnityTest]
+    public IEnumerator AsteroidThreeGameOver()
+    {
+        // Collision
+
+        GameObject gameGameObject =
+           MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Game"));
+        Game game = gameGameObject.GetComponent<Game>();
+
+        GameObject asteroid =
+         MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Asteroid3"));
+
+        //1
+        asteroid.transform.position = game.GetShip().transform.position;
+        //2
+        yield return new WaitForSeconds(0.1f);
+
+        //3
+        Assert.True(game.isGameOver);
+    }
+
+    [UnityTest]
+    public IEnumerator AsteroidFourGameOver()
+    {
+        // Collision
+
+        GameObject gameGameObject =
+           MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Game"));
+        Game game = gameGameObject.GetComponent<Game>();
+
+        GameObject asteroid =
+         MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Asteroid4"));
+
+        //1
+        asteroid.transform.position = game.GetShip().transform.position;
+        //2
+        yield return new WaitForSeconds(0.1f);
+
+        //3
+        Assert.True(game.isGameOver);
+    }
 }
 
