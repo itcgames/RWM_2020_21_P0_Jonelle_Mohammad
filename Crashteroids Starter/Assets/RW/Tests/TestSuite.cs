@@ -108,5 +108,15 @@ public class TestSuite
         Assert.AreEqual(game.score, 1);
     }
 
+    [UnityTest]
+    public IEnumerator RestartResetsScore()
+    {
+        game.NewGame();
+
+        Assert.AreEqual(game.score, 0);
+
+        yield return null;
+    }
+
 }
 
