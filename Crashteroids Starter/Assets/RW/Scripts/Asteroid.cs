@@ -34,7 +34,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public float speed = 1;
+    public float speed = 0.1f;
     private float maxY = -5;
 
     private void Update()
@@ -45,6 +45,9 @@ public class Asteroid : MonoBehaviour
     public void Move()
     {
         transform.Translate(Vector3.down * Time.deltaTime * speed);
+
+        speed += 0.1f;
+
         if (transform.position.y < maxY)
         {
             Destroy(gameObject);
