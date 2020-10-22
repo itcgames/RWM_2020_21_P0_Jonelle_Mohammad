@@ -30,6 +30,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,6 +51,8 @@ public class Game : MonoBehaviour
     private Text titleText;
     [SerializeField]
     private Spawner spawner;
+    [SerializeField]
+    private GameObject shield;
 
     private static Game instance;
 
@@ -60,6 +63,7 @@ public class Game : MonoBehaviour
         gameOverText.enabled = false;
         scoreText.enabled = false;
         startGameButton.SetActive(true);
+        shield.SetActive(true);
     }
 
     public static void GameOver()
@@ -70,6 +74,7 @@ public class Game : MonoBehaviour
         instance.spawner.StopSpawning();
         instance.shipModel.GetComponent<Ship>().Explode();
         instance.gameOverText.enabled = true;
+        instance.shield.SetActive(false);
     }
 
     public void NewGame()
@@ -86,6 +91,7 @@ public class Game : MonoBehaviour
         shipModel.GetComponent<Ship>().RepairShip();
         spawner.ClearAsteroids();
         gameOverText.enabled = false;
+        instance.shield.SetActive(true);
     }
 
     public static void AsteroidDestroyed()
@@ -102,5 +108,10 @@ public class Game : MonoBehaviour
     public Spawner GetSpawner()
     {
         return spawner.GetComponent<Spawner>();
+    }
+
+    public Shield GetShield()
+    {
+        return shield.GetComponent<Shield>();
     }
 }

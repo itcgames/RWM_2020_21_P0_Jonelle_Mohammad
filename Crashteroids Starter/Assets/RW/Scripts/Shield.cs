@@ -1,18 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool shieldActive;
+
+    public void Start()
     {
-        
+        shieldActive = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.name == "ShipModel")
+        {
+           shieldActive = true;
+        }
     }
+
+    public bool getShieldActive()
+    {
+        return shieldActive;
+    }
+  
 }

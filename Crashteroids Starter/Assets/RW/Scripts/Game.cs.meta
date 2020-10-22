@@ -3,7 +3,15 @@ guid: a8e2d61045e8d324e9bee2512c8252b9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - shipModel: {instanceID: 0}
+  - startGameButton: {instanceID: 0}
+  - gameOverText: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - titleText: {instanceID: 0}
+  - spawner: {instanceID: 0}
+  - shield: {fileID: 1394311340133810327, guid: f23a646983c1a574c88e37210a17d566,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
