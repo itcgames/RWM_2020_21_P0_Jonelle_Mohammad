@@ -46,9 +46,15 @@ public class Ship : MonoBehaviour
     private GameObject laser;
     [SerializeField]
     private Transform shotSpawn;
+    [SerializeField]
+    public GameObject playerShield;
+    [SerializeField]
+    public Rigidbody rBody;
 
     private float maxLeft = -8;
     private float maxRight = 8;
+
+    bool shieldActive = false;
 
     private void Update()
     {
@@ -70,6 +76,11 @@ public class Ship : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             MoveRight();
+        }
+
+        if (shieldActive == true)
+        { 
+            playerShield.transform.position = rBody.transform.position;
         }
     }
 
@@ -125,4 +136,14 @@ public class Ship : MonoBehaviour
         mesh.enabled = true;
         isDead = false;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Shield")
+        {
+            shieldActive = true;
+        }
+    }
+
+ 
 }

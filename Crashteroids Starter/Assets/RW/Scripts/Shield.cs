@@ -12,17 +12,5 @@ public class Shield : MonoBehaviour
         shieldActive = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "ShipModel")
-        {
-           shieldActive = true;
-        }
-    }
-
-    public bool getShieldActive()
-    {
-        return shieldActive;
-    }
   
 }

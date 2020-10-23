@@ -84,7 +84,7 @@ public class Game : MonoBehaviour
         startGameButton.SetActive(false);
         shipModel.transform.position = new Vector3(0, -3.22f, 0);
         shipModel.transform.eulerAngles = new Vector3(90, 180, 0);
-        score = 0;
+        score = 0;  
         scoreText.text = "Score: " + score;
         scoreText.enabled = true;
         spawner.BeginSpawning();
