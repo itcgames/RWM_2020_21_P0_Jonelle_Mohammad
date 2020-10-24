@@ -28,6 +28,7 @@
  * THE SOFTWARE.
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,10 +37,17 @@ public class Asteroid : MonoBehaviour
 {
     public float speed = 1;
     private float maxY = -5;
+    public bool shieldActive;
+
+
+    public GameObject ship;
+    public GameObject shield;
 
     private void Update()
     {
-        Move();
+       Move();
+       shieldActive = ship.GetComponent<Ship>().GetShield();
+
     }
 
     public void Move()
@@ -53,10 +61,15 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "ShipModel")
+        if (collision.gameObject.name == "ShipModel" && shieldActive == false)
         {
             Game.GameOver();
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.name == "ShipModel" && shieldActive == true)
+        {
+            Destroy(shield);
         }
     }
 }

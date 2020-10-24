@@ -54,7 +54,12 @@ public class Ship : MonoBehaviour
     private float maxLeft = -8;
     private float maxRight = 8;
 
-    bool shieldActive = false;
+   public bool shieldActive;
+
+    private void Start()
+    {
+        shieldActive = false; 
+    }
 
     private void Update()
     {
@@ -145,5 +150,10 @@ public class Ship : MonoBehaviour
         }
     }
 
+
+    public bool GetShield()
+    {
+        return shieldActive;
+    }
  
 }
