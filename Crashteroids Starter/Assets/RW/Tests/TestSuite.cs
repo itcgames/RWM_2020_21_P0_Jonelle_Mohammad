@@ -203,5 +203,32 @@ public class TestSuite
         //3
         Assert.True(game.isGameOver);
     }
+
+
+    [UnityTest]
+    public IEnumerator AsteroidIncreaseSpeed()
+    {
+        GameObject gameGameObject =
+             MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Game"));
+        Game game = gameGameObject.GetComponent<Game>();
+
+        GameObject asteroid =
+         MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Asteroid"));
+
+        float originalSpeed = asteroid.GetComponent<Asteroid>().speed;
+
+        yield return new WaitForSeconds(0.1f);
+
+        //Assert.areNotEqual(originalSpeed , asteroid.GetComponent<Asteroid>().speed);
+
+        if(originalSpeed != asteroid.GetComponent<Asteroid>().speed)
+        {
+           yield return true;
+        }
+        else
+        {
+            yield return false;
+        }
+    }
 }
 

@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
 {
     public List<GameObject> asteroids = new List<GameObject>();
 
-    public float asteroidSpeed = 0.0f;
+    //public float asteroidSpeed = 0.0f;
 
     [SerializeField]
     private GameObject asteroid1;
@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
 
-        asteroidSpeed += 0.1f;
+       // asteroidSpeed += 1.0f;
 
         SpawnAsteroid();
         StartCoroutine("Spawn");
@@ -88,7 +88,7 @@ public class Spawner : MonoBehaviour
         asteroid.SetActive(true);
         float xPos = Random.Range(-8.0f, 8.0f);
 
-        asteroid.GetComponent<Asteroid>().speed = asteroidSpeed;
+        //asteroid.GetComponent<Asteroid>().speed = asteroidSpeed;
 
         // Spawn asteroid just above top of screen at a random point along x-axis
         asteroid.transform.position = new Vector3(xPos, 7.35f, 0);

@@ -28,13 +28,14 @@
  * THE SOFTWARE.
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public float speed = 0.1f;
+    public float speed = 0.0f;
     private float maxY = -5;
 
     private void Update()
@@ -44,7 +45,7 @@ public class Asteroid : MonoBehaviour
 
     public void Move()
     {
-        transform.Translate(Vector3.down * Time.deltaTime * speed);
+        transform.Translate(Vector3.down * Time.deltaTime * (speed + 1));
 
         speed += 0.1f;
 
